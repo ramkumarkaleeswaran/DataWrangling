@@ -10,15 +10,22 @@ import json
 import pandas
 
 def getTopArtist():
-    url = "http://www.last.fm/api/auth/?api_key=cd04815196f0a58983ee398e118a6f51&token=5b10d6961947d10bcf8ce5fe00503787";
+    url2 = "http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=spain&api_key=cd04815196f0a58983ee398e118a6f51&format=json";
 
-    print data["topartists"]["artist"][0]["name"];
+    print 'hello'
+    
+    data = requests.get(url2).text ;
+    
+    data = json.loads(data);
+    
+    print data
 
-#print data["topartists"]["artist"][2]["name"];
+    print "top artist in spain is " 
+        
+    print data['topartists']['artist'][0]
+        
+    print data['topartists']['artist'][0]['name']
 
-#print (data["album"]['artist']);
-#print 'spain top';
-print 5 +5;
     
     
 
@@ -31,11 +38,11 @@ def getAlbumInfo():
     data = json.loads(data);
     
     print type(data)
-    
+        
     print data
     
-#    print data[]
-    
 
 
-getAlbumInfo()
+#getAlbumInfo()
+
+getTopArtist()
